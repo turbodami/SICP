@@ -22,8 +22,8 @@
                    (max p1 p2 p3 p4))))
 
 (define (div-interval x y)
-  (cond ((or (and (= (lower-bound y) 0) (= (upper-bound y) 0)) 
-             (and (= (lower-bound x) 0) (= (upper-bound x) 0))) (display "Errore: intervallo non valido socio"))
-        (else (mul-interval x
+  (cond ((or (= (lower-bound y) (upper-bound y)) 
+             (= (lower-bound x) (upper-bound x))) (display "Error: invalid interval!") (newline))
+         (else (mul-interval x
                 (make-interval (/ 1.0 (upper-bound y))
                                (/ 1.0 (lower-bound y)))))))
