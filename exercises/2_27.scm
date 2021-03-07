@@ -1,0 +1,11 @@
+(define (deep-reverse-iter tree)
+  (define (reverse-iter items result)
+    (if (null? items)
+        result
+        (let ((head (car items)))
+          (reverse-iter (cdr items)
+                        (cons (if (pair? head)
+                                  (deep-reverse head)
+                                  head)
+                              result)))))
+  (reverse-iter tree nil))
